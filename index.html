@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+        main>div{
+            width:300px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 100px auto;
+            transition: 5s;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* position: fixed;
+            top: 10%;left: 40%; */
+        }
+        div:nth-of-type(2){
+            transform: perspective(800px) translateX(100px) rotateY(45deg) translateZ(250px);
+        }
+        div:nth-of-type(3){
+            transform: perspective(800px) translateX(100px) rotateY(90deg) translateZ(500px);
+        }
+        div:nth-of-type(4){
+            transform: perspective(800px) translateX(100px) rotateY(135deg) translateZ(750px);
+        }
+        div:nth-of-type(5){
+            transform: perspective(800px) translateX(100px) rotateY(180deg) translateZ(1000px);
+        }
+        div:nth-of-type(6){
+            transform: perspective(800px) translateX(100px) rotateY(225deg) translateZ(375px);
+        }
+        div:nth-of-type(7){
+            transform: perspective(800px) translateX(100px) rotateY(270deg) translateZ(250px);
+        }
+        div:nth-of-type(8){
+            transform: perspective(800px) translateX(100px) rotateY(315deg) translateZ(125px);
+        }
+        div>img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h2></h2>
+    <main id="main">
+        <div>
+            <img src="img/demo_2.png" alt="">
+        </div>
+        <div>
+            <img src="img/demo_3.png" alt="">
+        </div>
+        <div>
+            <img src="img/footer_img_1.png" alt="">
+        </div>
+        <div>
+            <img src="img/footer_img_2.png" alt="">
+        </div>
+        <div>
+            <img src="img/footer_img_3.png" alt="">
+        </div>
+        <div>
+            <img src="img/footer_img_4.png" alt="">
+        </div>
+        <div>
+            <img src="img/footer_img_5.png" alt="">
+        </div>
+        <div>
+            <img src="img/footer_img_6.png" alt="">
+        </div>
+    </main>
+</body>
+<script>
+    let x = 0
+    let y = 0
+    console.log(x);
+    let _div = document.querySelectorAll('div')
+    _div.forEach((item)=>{
+        document.getElementById('main').addEventListener('mousemove',(e)=>{
+            if(e.clientX <= 250){
+            x = (e.clientX)/1.39
+            y = (e.clientX)*4
+            document.getElementsByTagName('h2')[0].innerHTML=e.clientX+' and '+y
+            item.style.transform=`perspective(800px) rotateY(${x}deg) translateZ(${y}px)`
+            }
+            if(e.clientX > 250){
+            x = (e.clientX)/1.39
+            y = 1000-(e.clientX)*2
+            document.getElementsByTagName('h2')[0].innerHTML=e.clientX+' and '+y
+            item.style.transform=`perspective(800px) rotateY(${x}deg) translateZ(${y}px)`
+            }
+            if(e.clientX > 500){
+            x = (e.clientX)/1.39
+            y = ((e.clientX)-500)*4
+            document.getElementsByTagName('h2')[0].innerHTML=e.clientX+' and '+y
+            item.style.transform=`perspective(800px) rotateY(${x}deg) translateZ(${y}px)`
+            }
+            if(e.clientX > 750){
+            x = (e.clientX)/1.39
+            y = 1000-((e.clientX)-500)*2
+            document.getElementsByTagName('h2')[0].innerHTML=e.clientX+' and '+y
+            item.style.transform=`perspective(800px) rotateY(${x}deg) translateZ(${y}px)`
+            }
+            if(e.clientX > 1000){
+            x = (e.clientX)/1.39
+            y = ((e.clientX-1000))*4
+            document.getElementsByTagName('h2')[0].innerHTML=e.clientX+' and '+y
+            item.style.transform=`perspective(800px) rotateY(${x}deg) translateZ(${y}px)`
+            }
+            if(e.clientX > 1250){
+            x = (e.clientX)/1.39
+            y = 1000-((e.clientX)-1000)*2
+            document.getElementsByTagName('h2')[0].innerHTML=e.clientX+' and '+y
+            item.style.transform=`perspective(800px) rotateY(${x}deg) translateZ(${y}px)`
+            }
+        })
+    })
+</script>
+</html>
